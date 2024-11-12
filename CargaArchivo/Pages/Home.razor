@@ -1,0 +1,65 @@
+﻿@page "/"
+<PageTitle>Home</PageTitle>
+<h1>Hola</h1>
+
+<div class="container mt-5">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            
+            <span class="input-group-text btn-folder" onclick="openFileExplorer()">
+                <!--<i class="fas fa-folder-open"></i>-->
+                <i class="fas fa-cloud-upload-alt"></i>
+            </span>
+        </div>
+
+        <input type="text" class="form-control rounded-right" placeholder="Selecciona un archivo" style="border: 1px solid #296DFF; box-shadow: none;" id="uploadText">
+
+        <div class="input-group-append">
+            <button class="btn btn-delete" type="button" onclick="openDeleteModal()">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- oculto-->
+    <input type="file" id="fileInput" accept=".doc, .docx, .pdf" style="display: none;" onchange="displayFileName()">
+</div>
+
+<!--Modal-Subir Archivo->
+<div class="modal" id="subirModal">
+    <div class="modal-content">
+        <div>
+            <img src="img/subir_icono.png" alt="Icono de carpeta" class="icon-image">
+        </div>
+        <h2 class="mt-3">Subiendo Archivo</h2>
+        <section class="progress-area">
+            <div class="file-details">
+                <span class="file-name"></span>
+                <span class="file-size"></span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 60%;"></div>
+            </div>
+            <span class="percent"></span>
+        </section>
+    </div>
+</div>
+
+<!-- Modal-Eliminar Archivo-->
+<div class="modal" id="deleteModal">
+    <div class="modal-content">
+
+        <div class="icon-circle">
+            <div class="icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+        </div>
+        <h2>Eliminar Archivo</h2>
+        <p>¿Estas seguro que deseas eliminar el archivo?<br>Esta acción no se puede deshacer</p>
+        <div class="modal-buttons">
+            <button class="btn-cancel" onclick="closeDeleteModal()">No, cancelar</button>
+            <button class="btn-confirm-delete" onclick="confirmDelete()">Si,continuar</button>
+        </div>
+
+    </div>
+</div>
